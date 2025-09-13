@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1608519006 source:/home/mbonuchinedu/Documents/MainProjects/C++/Project1/main.cpp
+	<iostream>
+	<string>
+	<vector>
+	"Func.h"
+
+1608519009 /home/mbonuchinedu/Documents/MainProjects/C++/Project1/Func.h
+	<iostream>
+	<string>
+
+1608520627 source:/home/mbonuchinedu/Documents/MainProjects/C++/Project1/Vect.cpp
+	<iostream>
+	<vector>
+	<string>
+
