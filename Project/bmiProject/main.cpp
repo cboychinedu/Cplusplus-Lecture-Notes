@@ -1,70 +1,125 @@
-// Including the header files 
+// including the header files 
 #include <iostream> 
 #include <string> 
-#include <limits> // Required for numeric_limits
+#include <limits> 
 #include "bmiCalculator.h"
 
-// Note: The function `calculateBmi` is assumed to be defined in "bmiCalculator.h"
-
 // running the main application 
-int main() {
-    // Declaration of the variables 
-    double mass, height;
-    double bodyMassIndex;
+int main(void) {
+	// Declaration of the variables 
+	double mass, height; 
+	double bodyMassIndex; 
+	double radius, area; 
 
-    // Using a do-while loop for a cleaner structure
-    char userOption; 
-    do {
-        // Clear input buffer before asking for user input
-        // This is necessary because of the mix of std::cin and std::getline
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        
-        // Asking the user if they want to exit 
-        std::cout << "Do you want to exit? (y/n): "; 
-        std::cin >> userOption;
+	// Creating an instance of the bmi and area class 
+	BmiClassAndAreaClass areaAndBmi; 
 
-        // Using if-else if statement for options 'y' or 'n'
-        if (userOption == 'n' || userOption == 'N') {
-            // Get user data for the BMI calculation 
-            std::cout << "Enter your mass (kg): "; 
-            std::cin >> mass; 
-            
-            // Validate mass input
-            while (std::cin.fail()) {
-                std::cout << "Invalid input. Please enter a valid number for mass (kg): ";
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                std::cin >> mass;
-            }
+	// Using a do-while loop for a clearner structure 
+	char userOption; 
+	char calculationOption; 
 
-            // Taking the user's height
-            std::cout << "Enter your height (meters): "; 
-            std::cin >> height; 
-            
-            // Validate height input
-            while (std::cin.fail()) {
-                std::cout << "Invalid input. Please enter a valid number for height (meters): ";
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                std::cin >> height;
-            }
+	// Using a do while loop 
+	do {
+		// Asking if the user want to exit 
+		std::cout << "Do you want to exit? (y/n): "; 
+		std::cin >> userOption; 
 
-            // Perform the calculation for BMI 
-            bodyMassIndex = calculateBmi(mass, height); 
+		// Validate the user option 
+		while (std::cin.fail()) {
+			std::cout << "Invalid input, Please select (y/n): "; 
+			std::cin.clear(); 
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cin >> userOption; 
+		}
 
-            // Displaying the result 
-            std::cout << "Your Body Mass Index (BMI) is: " << bodyMassIndex << std::endl; 
-            
-            std::cout << "------------------------\n\n";
 
-        } else if (userOption != 'y' && userOption != 'Y') {
-            // Handle invalid input for the 'y/n' prompt
-            std::cout << "Invalid option. Please enter 'y' or 'n'." << std::endl;
-        }
+		// Using if/else statement for options 'y' or 'n' 
+		if (userOption == 'n' || userOption == 'N') {
+			// Asking the user which calculations he/she want to perform 
+			std::cout << "Which calculation do you want to perform, BMI(b/B) or Area(a/A): "; 
+			std::cin >> calculationOption;
 
-    } while (userOption != 'y' && userOption != 'Y'); // Continue loop if user enters 'n' or an invalid option
+			// If the user want a bmi calculation, execute the block of code below. 
+			if (calculationOption == 'b' || calculationOption == 'B') {
+				// Get the user data for the BMI calculation 
+				std::cout << "Enter your mass (Kg): "; 
+				std::cin >> mass; 
 
-    std::cout << "Exiting the program. Goodbye!" << std::endl;
+				// Validate the mass input 
+				while (std::cin.fail()) {
+					std::cout << "Invalid input, Please enter a valid number for mass (Kg): "; 
+					std::cin.clear(); 
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+					std::cin >> mass; 
 
-    return 0; 
+				}
+
+				// Taking the user's height 
+				std::cout << "Enter your height (meters): "; 
+				std::cin >> height; 
+
+				// Validate the height input 
+				while (std::cin.fail()) {
+					std::cout << "Invalid input, Please enter a valid number for the height (meters): "; 
+					std::cin.clear(); 
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+					std::cin >> height; 
+				}
+
+				// Perform the calculation for BMI 
+				bodyMassIndex = areaAndBmi.calculateBmi(mass, height); 
+
+				// Displaying the result 
+				std::cout << "Your Body Mass Index (BMI) is: " << bodyMassIndex << std::endl; 
+
+				// 
+				std::cout << "--------------------------------------------------------\n\n"; 
+
+
+			}
+
+			// Else if 
+			else if (calculationOption == 'a' || calculationOption == 'A') {
+				// Calculating the area of a circle 
+				// getting the values for radius and pi 
+				std::cout << "Enter your radius (meters): "; 
+				std::cin >> radius; 
+
+				// Validate the radius 
+				while (std::cin.fail()) {
+					std::cout << "Invalid input, Please enter a valid number for the radius (meters): "; 
+					std::cin.clear(); 
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+					std::cin >> radius; 
+
+				}
+
+				// Performing the calculations 
+				area = areaAndBmi.areaOfAcircle(radius); 
+
+				// Displayin the result 
+				std::cout << "The area of the circle is: " << area << "meters^2" << std::endl; 
+
+				// 
+				std::cout << "--------------------------------------------------------------\n\n"; 
+
+			}
+		} 
+
+		// else if the user choses the yes(y) option 
+		else if (userOption != 'y' && userOption != 'Y') {
+			// Handle invalid input for the 'y/n' prompt 
+			std::cout << "Invalid option. Please enter 'y' or 'n' . " << std::endl; 
+		}
+	}
+
+	// While loop 
+	// Continue loop if user enters 'n' or an invalid option
+	while (userOption != 'y' && userOption != 'Y'); 
+
+	// Existing the program 
+	std::cout << "Exiting the program, Goodbye!" << std::endl; 
+
+	// Closing up 
+	return 0; 
 }
