@@ -2,7 +2,7 @@
 #include <iostream> 
 #include <string> 
 #include <limits> 
-#include "bmiCalculator.h"
+#include "modules/headers/bmiClass.h"
 
 // running the main application 
 int main(void) {
@@ -14,7 +14,7 @@ int main(void) {
 	// Creating an instance of the bmi and area class 
 	BmiClassAndAreaClass areaAndBmi; 
 
-	// Using a do-while loop for a clearner structure 
+	// Using a do-while loop for a cleaner structure 
 	char userOption; 
 	char calculationOption; 
 
@@ -93,15 +93,6 @@ int main(void) {
 					std::cin >> radius; 
 
 				}
-
-				// Performing the calculations 
-				area = areaAndBmi.areaOfAcircle(radius); 
-
-				// Displayin the result 
-				std::cout << "The area of the circle is: " << area << "meters^2" << std::endl; 
-
-				// 
-				std::cout << "--------------------------------------------------------------\n\n"; 
 
 			}
 		} 
