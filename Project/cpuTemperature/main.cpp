@@ -4,33 +4,7 @@
 #include <string> 
 #include <vector> 
 #include <unistd.h>
-
-// Function to read the CPU temperature From a thermal zone file. 
-// the thermal zone path can vary between systems. 
-float readCpuTemperature(const std::string& thermalZonePath) {
-	std::ifstream tempFile(thermalZonePath); 
-
-	// if the temp file is open 
-	if (!tempFile.is_open()) {
-		std::cerr << "Error: Could not open thermal zone files at: " << thermalZonePath << std::endl; 
-
-		// return -1.0f 
-		return -1.0f; 
-	}
-
-	// The temperature is typically a number in milidegree celsisu 
-	int temperatureMilliCelsius; 
-	tempFile >> temperatureMilliCelsius; 
-
-	// Convert from millidegrees Celsius to degree celsius 
-	float temperatureCelsius = static_cast<float>(temperatureMilliCelsius) / 1000.0f; 
-
-	// closing up 
-	tempFile.close(); 
-
-	// return the value 
-	return temperatureCelsius; 
-}
+#include "headers/getTemperature.h"
 
 
 // Running the main function 
@@ -42,13 +16,12 @@ int main(void) {
 	 * If it doesn't work, you may need to check your system's
 	 * /sys/class/thermal/ directory for the correct path. 
 	*/
-
 	std::string thermalZonePath = "/sys/class/thermal/thermal_zone0/temp"; 
 
 	// Using while loop 
 	while (true) {
 		// Getting the temperature 
-		float tempT = readCpuTemperature(thermalZonePath); 
+		double tempT = readCpuTemperature(thermalZonePath); 
 
 		// if the temperature is reading
 		if (tempT > 0) {
