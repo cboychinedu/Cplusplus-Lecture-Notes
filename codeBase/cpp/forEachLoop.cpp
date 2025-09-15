@@ -7,6 +7,12 @@ int main(void) {
     // declaring a string array
     std::string students[] = { "spongebob", "patrick", "squidward", "kevlin", "Sarah", "mosh" };
     const int grades[] = { 90, 85, 78, 92, 88, 95 };
+    int myNumbers[] = {10, 20, 30, 40, 50}; 
+
+    // Using for each loop 
+    for (int numbers: myNumbers) {
+        printf("Counting: %d \n", numbers);
+    }
 
     for (int grade: grades) {
         std::cout << grade << std::endl; 

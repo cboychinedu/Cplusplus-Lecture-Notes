@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-// Using the standard namespace libary
+// Using the standard namespace library
 using namespace std;
 
 // Running the main function
@@ -34,13 +34,13 @@ int main()
     // Creating an array to hold a double value
     double prices[5] = {4.99, 10.99, 6.87, 7.99, 8.49};
 
-    // Displaying each individual elements of the array seperately.
+    // Displaying each individual elements of the array separately.
     for ( double x : prices )
     {
         // creating a floating point variable to hold new calculated values
         int calVal = int(x) * 2;    // Just used type cast here
 
-        // Displaying the elememts.
+        // Displaying the elements.
         std::cout << calVal << std::endl;
 
     }
