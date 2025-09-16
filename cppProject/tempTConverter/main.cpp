@@ -11,13 +11,19 @@ int main(void) {
 	// and t(celsius) 
 	double kelvinT = 434; 
 	double celsiusT = 25.60;
-	double result;  
+	double resultInKelvin, resultInCelsius;  
 
 	// Converting into kelvin 
-	result = convertCelsiusToKelvin(celsiusT); 
+	resultInKelvin = convertCelsiusToKelvin(celsiusT); 
 
 	// Displying the result 
-	std::cout << "The result in K is: " << result << std::endl; 
+	std::cout << "The result in K is: " << resultInKelvin << std::endl; 
+
+	// Converting into celsius 
+	resultInCelsius = convertKelvinToCelsius(kelvinT); 
+
+	// Displying the result 
+	std::cout << "The result in C is: " << resultInCelsius << std::endl; 
 
 	// Closing up 
 	return 0; 

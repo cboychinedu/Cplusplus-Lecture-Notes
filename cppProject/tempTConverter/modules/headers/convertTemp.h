@@ -1,6 +1,6 @@
 // Including the headers file 
-#ifndef MY_FUNCTIONS_H 
-#define MY_FUNCTIONS_H 
+#ifndef TEMP_CONVERSIONS_H 
+#define TEMP_CONVERSIONS_H
 
 
 // This is the function declaration 

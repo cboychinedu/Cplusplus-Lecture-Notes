@@ -5,7 +5,7 @@
 int main()
 {
   // Creating a variable to hold the agent code
-  unsigned long code;
+  unsigned long code; 
 
   // Working with the backspace character
   std::cout << "\a Operation \"HyperHype\" is now activate! \n";
