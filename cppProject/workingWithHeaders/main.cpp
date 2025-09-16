@@ -4,9 +4,9 @@
 #include "modules/headers/substract.h"
 
 // running the main function 
-int main(void) {
+int main() {
 	double num1 = 20.5; 
-	double num2 = 43.5; 
+	double num2 = 100; 
 
 	// call the add function 
 	double Additionresult = add(num1, num2); 
